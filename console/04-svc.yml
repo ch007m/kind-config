@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: origin-console-svc
+  namespace: kube-system
+spec:
+  selector:
+    app: origin-console
+  ports:
+    - name: http
+      port: 80
+      targetPort: 9000
