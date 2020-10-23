@@ -26,7 +26,11 @@ kubectl create ns dashboard
 ```
 Next deploy the K8s resources
 ```bash
-kubectl apply -f okd-console/
+kubectl apply -f https://raw.githubusercontent.com/ch007m/kind-config/master/okd-console/01-serviceaccount.yml
+kubectl apply -f https://raw.githubusercontent.com/ch007m/kind-config/master/okd-console/02-rbac.yml
+kubectl apply -f https://raw.githubusercontent.com/ch007m/kind-config/master/okd-console/03-deployment.yml
+kubectl apply -f https://raw.githubusercontent.com/ch007m/kind-config/master/okd-console/04-svc.yml
+kubectl apply -f https://raw.githubusercontent.com/ch007m/kind-config/master/okd-console/05-ingress.yml
 ```
 Wait a few moments and next open the console within your browser `http://console.127.0.0.1.nip.io/` 
 
