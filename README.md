@@ -15,6 +15,7 @@ Execute the following bash script to create a Kind cluster having a docker regis
 ```bash
 ./kind-reg-ingress.sh <NAME_OF_CLUSTER> <K8S_VERSION>
 ```
+**<K8S_VERSION>**: Select one of the following values `1.13 to 1.19`. Default: `1.19`
 
 ### Deploy the OKD console
 
