@@ -1,0 +1,4 @@
+.idea
+
+# Ignore this file as it must be generated
+/console/01-deployment.yml
