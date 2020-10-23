@@ -1,6 +1,6 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 
-# Bash 4 is needed !!
+# Bash version >= 4 is needed !!
 
 set -o errexit
 
