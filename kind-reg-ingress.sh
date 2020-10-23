@@ -5,7 +5,7 @@
 set -o errexit
 
 CLUSTER_NAME=${1:-devcluster}
-K8S_VERSION=${2:-1.18}
+K8S_VERSION=${2:-1.19}
 TO_BE_DELETED=${3:-true}
 REG_NAME='kind-registry'
 
