@@ -13,7 +13,7 @@ and next to provision it with a docker registry, dashboard, ingress controller, 
 
 Execute the following bash script to create a Kind cluster having a docker registry and ingress controller
 ```bash
-./kind-reg-ingress.sh devcluster
+./kind-reg-ingress.sh <NAME_OF_CLUSTER> <K8S_VERSION>
 ```
 
 ### Deploy the OKD console
