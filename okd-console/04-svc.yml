@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: origin-console-svc
-  namespace: kube-system
+  namespace: dashboard
 spec:
   selector:
     app: origin-console

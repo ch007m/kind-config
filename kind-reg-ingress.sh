@@ -1,8 +1,8 @@
 #!/bin/sh
 set -o errexit
 
-TO_BE_DELETED=${1:-false}
-CLUSTER_NAME=${2:-devcluster}
+CLUSTER_NAME=${1:-devcluster}
+TO_BE_DELETED=${2:-true}
 REG_NAME='kind-registry'
 
 # Delete clusterif requested
