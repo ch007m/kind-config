@@ -8,6 +8,7 @@ and next to provision it with a docker registry, dashboard, ingress controller, 
 - [Docker client](https://docs.docker.com/desktop/)
 - [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+- [Terminal based UI to manage clusters - K9s](https://k9scli.io/) - optional but recommended !!
 
 ### Create the Kind cluster
 
