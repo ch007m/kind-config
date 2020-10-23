@@ -1,4 +1,4 @@
-# Steps to follow to install on kind the ocp console
+# Steps to follow to install on kind the okd console
 
 - Before to install the console, it is first needed to get from the k8s cluster the secretname of the default user needed to let the UI to access
   the API and next to specify it within the deployment yaml resource
