@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: waypoint-server
+  name: waypoint-server
+  namespace: waypoint
+spec:
+  selector:
+    matchLabels:
+      app: waypoint-server
+  serviceName: waypoint-server
+  template:
+    metadata:
+      labels:
+        app: waypoint-server
+    spec:
+      containers:
+        - args:
+            - server
+            - run
+            - -accept-tos
+            - -vvv
+            - -db=/data/data.db
+            - -listen-grpc=0.0.0.0:9701
+            - -listen-http=0.0.0.0:9702
+          command:
+            - waypoint
+          image: hashicorp/waypoint:latest
+          imagePullPolicy: Always
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTPS
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: server
+          ports:
+            - containerPort: 9701
+              name: grpc
+              protocol: TCP
+            - containerPort: 9702
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+          volumeMounts:
+            - mountPath: /data
+              name: data
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+        - name: github
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        fsGroup: 1000
+      terminationGracePeriodSeconds: 30
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+    type: RollingUpdate
+  volumeClaimTemplates:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+        volumeMode: Filesystem

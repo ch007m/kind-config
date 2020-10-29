@@ -38,8 +38,9 @@
 #NAME              CLASS    HOSTS                             ADDRESS     PORTS     AGE
 #fortune-ingress   <none>   fortune-teller.127.0.0.1.nip.io   localhost   80, 443   20m
 #waypoint          <none>   waypoint-ui.127.0.0.1.nip.io      localhost   80        54m
-#
+# grpcurl -insecure fortune-teller.127.0.0.1.nip.io:443 list
 # grpcurl -insecure fortune-teller.127.0.0.1.nip.io:443 build.stack.fortune.FortuneTeller/Predict
+# grpcurl -insecure -H "client-api-protocol: 1,1" -H "authorization: $TOKEN" waypoint-grpc.127.0.0.1.nip.io:443 hashicorp.waypoint.Waypoint.ListWorkspaces
 #
 read -p "Service name : " SERVICE_NAME
 read -p "Service port : " SERVICE_PORT
