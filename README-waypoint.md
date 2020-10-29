@@ -46,4 +46,12 @@ and control if the context is correct
  waypoint context verify my-k8s-server
 ⠹ Connecting with context "my-k8s-server"...
 ✓ Context "my-k8s-server" connected successfully.
+
+To build/deploy a project, it will required to tell to the server to initialize an authentication token.
+That could be done usign the `bootstrap` command
+
+```bash
+waypoint server bootstrap -server-addr=waypoint-grpc.127.0.0.1.nip.io:443 -server-tls-skip-verify
 ```
+Next, you can issue the commands: `waypoint unit, build, deploy or up` within your project containing
+a hcl config file ;-)
