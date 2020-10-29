@@ -31,3 +31,19 @@ service Waypoint {
   rpc DeleteHostname ( .hashicorp.waypoint.DeleteHostnameRequest ) returns ( .google.protobuf.Empty );
 ...
 ```
+
+If that works you can try to register for your waypoint the context of the server
+```bash
+waypoint context create \
+    -server-addr=waypoint-grpc.127.0.0.1.nip.io:443 \
+    -server-auth-token=abcd1234 \
+    -server-tls \
+    -server-tls-skip-verify \
+    -set-default my-k8s-server
+```
+and control if the context is correct
+```bash
+ waypoint context verify my-k8s-server
+⠹ Connecting with context "my-k8s-server"...
+✓ Context "my-k8s-server" connected successfully.
+```
