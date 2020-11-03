@@ -55,3 +55,7 @@ waypoint server bootstrap -server-addr=waypoint-grpc.127.0.0.1.nip.io:443 -serve
 ```
 Next, you can issue the commands: `waypoint unit, build, deploy or up` within your project containing
 a hcl config file ;-)
+
+## Cool references
+
+https://github.com/jbayer/waypoint-digital-ocean-docs/blob/main/README.md#bootstrap-waypoint-server
